@@ -1,6 +1,10 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
 import { Auth, initializeAuth, browserLocalPersistence } from 'firebase/auth';
+import dotenv from 'dotenv'
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+
+dotenv.config();
 
 let firebaseApp;
 
@@ -10,14 +14,14 @@ export const getFirebaseApp = () => {
   }
 
   const firebaseConfig = {
-    apiKey: "AIzaSyD6MtHR0c6H1BAvm-tRLRttydGF0HlhHbk",
-    authDomain: "mliot-sis.firebaseapp.com",
-    projectId: "mliot-sis",
-    storageBucket: "mliot-sis.appspot.com",
-    messagingSenderId: "785611461017",
-    appId: "1:785611461017:web:65789c7d4cbade11168308",
-    measurementId: "G-51J2WPC9KN",
-    databaseURL: "https://mliot-sis-default-rtdb.asia-southeast1.firebasedatabase.app" // Specify the database URL with the correct region
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId,
+    measurementId: process.env.measurementId,
+    databaseURL: process.env.databaseURL// Specify the database URL with the correct region
   };
 
   // Initialize Firebase
