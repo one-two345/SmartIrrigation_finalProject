@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     main2:{
       backgroundColor: 'white', 
     borderRadius: 8, 
-   height:80,
+   height:120,
     borderColor: 'white', 
      padding: 10,
      margin:20
@@ -73,8 +73,10 @@ export const styles = StyleSheet.create({
     },
     touch2:{
       borderWidth:3,
+      marginTop:23,
       borderRadius:12,
     margin:30,
+    backgroundColor:'#faebd7',
       height:49,
       textAlign:'center',
       alignItems:'center'

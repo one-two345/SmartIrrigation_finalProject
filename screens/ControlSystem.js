@@ -75,7 +75,7 @@ const ControlSystem = () => {
           <TextInput  style={styles.input1} placeholder="Watering duration"></TextInput>
           </View>     */}
       </View>
-      <Text style={styles.text1}>Others</Text>
+      
       <TouchableOpacity 
       style={styles.touch2}
        onPress={()=>{navigation.navigate('setting')}} 

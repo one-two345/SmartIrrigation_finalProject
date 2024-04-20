@@ -79,11 +79,12 @@ const ScheduleManagment = () => {
                   
                    <View style={styles.main4}>
                    <View style={styles.main3}>
-                        <View>
-                            <Button onPress={showDatepicker} title="Show date picker!" />
+                    <View style={{flexDirection:'row'}}>
+                        <View style={styles.main3}>
+                            <Button onPress={showDatepicker} title="Date picker!" />
                         </View>
                         <View style={styles.main3}>
-                            <Button onPress={showTimepicker} title="Show time picker!" />
+                            <Button onPress={showTimepicker} title="Time picker!" />
                         </View>
                         {show && (
                             <DateTimePicker
@@ -96,12 +97,12 @@ const ScheduleManagment = () => {
                             />
                         )}
                     </View>
-
+                    </View>
                    </View>
-                 
-                    <Button title="Save" onPress={handleSave} />
+                 <View style={{width:'50%', marginStart:70,borderRadius:15}}>
+                    <Button title="Save" onPress={handleSave}  />
                
-                
+                    </View>
                 </View>
 
                 <Text style={styles.text1}>Existing Schedules</Text>
