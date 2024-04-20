@@ -36,21 +36,22 @@ export default function App() {
               name="Login"
               component={Login}
               options={{
-                headerShown: false
+                headerShown: true
               }}
             />
             <Stack.Screen
               name="Signup"
               component={Signup}
               options={{
-                headerShown: false
+                headerShown: true
               }}
             />
             <Stack.Screen
               name="ViewContent"
               component={ViewContent}
               options={{
-                headerShown: false
+
+                headerShown: true
               }}
               
             />
@@ -58,7 +59,7 @@ export default function App() {
               name="controlSystem"
               component={ControlSystem}
               options={{
-                headerShown: false
+                headerShown: true
               }}
               
             />
@@ -66,7 +67,7 @@ export default function App() {
               name="scheduleManagement"
               component={ScheduleManagment}
               options={{
-                headerShown: false
+                headerShown: true
               }}
               
             />
@@ -74,7 +75,7 @@ export default function App() {
               name="setting"
               component={Setting}
               options={{
-                headerShown: false
+                headerShown:true
               }}
               
             />

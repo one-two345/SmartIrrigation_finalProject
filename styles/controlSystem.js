@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   main: {
-    backgroundColor: "#faf0e6",
+    backgroundColor: "white",
     flex: 1,
     marginTop: 50,
   },
@@ -11,12 +11,15 @@ export const styles = StyleSheet.create({
       marginTop: 20,
       marginStart: 12,
       fontWeight: "bold",
+      alignSelf:'center'
     },
     main1:{
     margin:20,
-    borderRadius:20,
-      backgroundColor:'white',
-      height:45,
+  
+    borderRadius:15,
+      backgroundColor:'#c0c0c0',
+      height:100,
+      textAlign:'center',
       flexDirection: 'row',
       justifyContent: 'space-between',
      
@@ -25,13 +28,16 @@ export const styles = StyleSheet.create({
     text2:{
       marginHorizontal: 5,
       flex: 1,
-      margin:12,
-      fontWeight:'bold'
+      marginTop:32,
+      fontWeight:'bold',
+      alignSelf:'center',
+      fontSize:18,
+      color:'#0000ff'
     },
     main2:{
-      backgroundColor: '#faf0e6', 
+      backgroundColor: 'white', 
     borderRadius: 8, 
-    borderWidth: 3, 
+   height:80,
     borderColor: 'white', 
      padding: 10,
      margin:20
@@ -53,11 +59,11 @@ export const styles = StyleSheet.create({
     text3:{
       fontWeight:'bold',
       marginTop:25,
-      height:50,
+      //height:40,
     },
     input1:{
   margin:12,
-  backgroundColor:'white',
+  backgroundColor:'#bdb76b',
   height:50,
   alignItems:'flex-end',
   marginStart:100,
@@ -77,6 +83,20 @@ export const styles = StyleSheet.create({
       marginStart:50,
       color:'black',
       marginTop:12,
+    },
+    touch3:{
+      backgroundColor:"#bc8f8f",
+      borderRadius:15,
+    },
+    text5:{
+      fontSize:30,
+      marginTop: 0,
+      marginStart: 0,
+      fontWeight: "bold",
+      alignSelf:'center',
+      height:70,
+      textAlign:'center',
+      marginTop:20
     }
 
  

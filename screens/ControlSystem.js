@@ -46,30 +46,18 @@ const ControlSystem = () => {
           <Text style={styles.text2}>Turn System On</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.text1}>Adjust Water schedule</Text>
+      <Text style={styles.text1}>Manage Your Water Schedule</Text>
       <View style={styles.main2}>
-        <TextInput
-          value={startTime}
-          onChangeText={setStartTime}
-          placeholder="Start Time"
-          keyboardType="numeric"
-          style={styles.textInput}
-        />
-        <TextInput
-          value={endTime}
-          onChangeText={setEndTime}
-          placeholder="End Time"
-          keyboardType="numeric"
-          style={styles.textInput}
-        />
-        <TextInput
-          value={frequency}
-          onChangeText={setFrequency}
-          placeholder="Frequency"
-          keyboardType="numeric"//this is string changed later
-          style={styles.textInput}
-        />
-      </View>
+      <TouchableOpacity  
+        style={styles.touch3}
+        onPress={() => navigation.navigate('scheduleManagement')}
+      >
+        <Text style={styles.text5} >Click To Manage</Text>
+      </TouchableOpacity>
+       
+       
+      </View> 
+
       <Text style={styles.text1}>Set Specific Zone</Text>
       <View style={styles.main2}>
         <View style={styles.main3}>
@@ -82,10 +70,10 @@ const ControlSystem = () => {
           <TextInput  style={styles.input1} placeholder="Watering duration"></TextInput>
           </View>
           
-        <View style={styles.main3}>
+        {/* <View style={styles.main3}>
           <Text style={styles.text3}>Zone C</Text>
           <TextInput  style={styles.input1} placeholder="Watering duration"></TextInput>
-          </View>    
+          </View>     */}
       </View>
       <Text style={styles.text1}>Others</Text>
       <TouchableOpacity 

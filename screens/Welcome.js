@@ -1,4 +1,4 @@
-import { View, Text, Pressable, Image } from 'react-native'
+import { View, Text, Pressable, Image,TouchableOpacity,ScrollView } from 'react-native'
 import React from 'react'
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from '../constants/colors';
@@ -7,12 +7,14 @@ import Button from '../components/Button';
 const Welcome = ({ navigation }) => {
 
     return (
+      
         <LinearGradient
             style={{
                 flex: 1
             }}
             colors={[COLORS.secondary, COLORS.primary]}
         >
+        
             <View style={{ flex: 1 }}>
               
 
@@ -65,11 +67,15 @@ const Welcome = ({ navigation }) => {
                                 marginLeft: 4
                             }}>Login</Text>
                         </Pressable>
-
+                     
                     </View>
+                 
                 </View>
+                
             </View>
+           
         </LinearGradient>
+       
     )
 }
 
