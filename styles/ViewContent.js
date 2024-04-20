@@ -6,7 +6,7 @@ export const styles=StyleSheet.create({
 
       text1:{
     fontSize:30,
-    marginTop:20,
+    marginTop:50,
     marginStart:12,
     fontWeight:'bold'
       },
@@ -35,7 +35,7 @@ export const styles=StyleSheet.create({
     flex: 1,
     marginHorizontal: 5,
     backgroundColor:'white',
-    height:120,
+    height:140,
     marginEnd:5,
    marginRight:5
   },
