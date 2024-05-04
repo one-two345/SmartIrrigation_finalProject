@@ -12,7 +12,7 @@ import CircularProgressBar  from '../components/CircularProgressBar.js'
 const ViewContent = () => {
 
   const navigation = useNavigation();
-  const[temp,setTemp]=useState(90)
+  const[temp,setTemp]=useState(50)
   const[humid,setHimid]=useState(85)
   const[moist,setPressur]=useState(45)
   const [progress, setProgress] = useState(0);
@@ -39,7 +39,7 @@ const ViewContent = () => {
       <Text style={styles.text1}>Weather Condition</Text>
   <View style={{  }}>
     {/* Temperature and Humidity */}
-    <View style={{  }}>
+    <View style={{ flexDirection:'row',justifyContent:'space-evenly' }}>
       <CircularProgressBar
         radius={50}
         strokeWidth={10}
@@ -62,6 +62,7 @@ const ViewContent = () => {
       progress={moist}
       color="#3385FF"
       title="Moisture"
+      style={{ margin: 10 }}
     />
   </View>
     

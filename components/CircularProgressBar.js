@@ -51,7 +51,18 @@ const CircularProgressBar = ({ radius, strokeWidth, progress, color, title }) =>
         />
       </Svg>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.progressValue}>{normalizedProgress}%</Text>
+      <Text>
+  {title === 'Humidity' ? (
+   
+    <Text style={styles.progressValue}>{normalizedProgress}%</Text>
+  ) : (
+   
+    <Text style={styles.progressValue}>{normalizedProgress}</Text>
+  
+  
+  )}
+</Text>
+
     </View>
   );
 };
