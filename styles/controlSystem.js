@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
  
     text1: {
-      fontSize: 30,
+      fontSize: 20,
       marginTop: 20,
       marginStart: 12,
       fontWeight: "bold",
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   
     borderRadius:15,
       backgroundColor:'#c0c0c0',
-      height:100,
+      height:80,
       textAlign:'center',
       flexDirection: 'row',
       justifyContent: 'space-between',

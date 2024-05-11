@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 export const styles=StyleSheet.create({
     main:{
-      backgroundColor:'#dcdcdc',
+      backgroundColor:'white',
       flex:1,},
 
       text1:{
@@ -34,7 +34,7 @@ export const styles=StyleSheet.create({
   column: {
     flex: 1,
     marginHorizontal: 5,
-    backgroundColor:'white',
+    backgroundColor:'',
     height:140,
     marginEnd:5,
    marginRight:5
@@ -49,15 +49,17 @@ export const styles=StyleSheet.create({
     fontSize:15
   },
   main2:{
-    backgroundColor:'white',
+    backgroundColor:'#d8bfd8',
     width:'85%',
-    height:89,
+    borderRadius:15,
+    height:70,
     marginStart:15
   },
   touch1:{
    backgroundColor:'black',
    marginTop:40,
    marginStart:15,
+   borderRadius:15,
    marginEnd:10,
    width:'85%',
    height:70,

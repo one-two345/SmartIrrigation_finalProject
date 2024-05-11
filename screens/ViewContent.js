@@ -86,7 +86,7 @@ const ViewContent = () => {
       </View> */}
       <Text style={styles.text1}>Irrigation Status</Text>
       <View style={styles.main2}>
-        <Text style={styles.text2}>Status:{moist}%</Text>
+        <Text style={styles.text2}>Status:{humid}%</Text>
         <Text style={styles.text2}>Duration:{34}min</Text>
       </View>
       <TouchableOpacity

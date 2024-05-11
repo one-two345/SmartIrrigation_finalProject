@@ -46,13 +46,13 @@ const ControlSystem = () => {
           <Text style={styles.text2}>Turn System On</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.text1}>Manage Your Water Schedule</Text>
+      {/* <Text style={styles.text1}>Manage Your Water Schedule</Text> */}
       <View style={styles.main2}>
       <TouchableOpacity  
         style={styles.touch3}
         onPress={() => navigation.navigate('scheduleManagement')}
       >
-        <Text style={styles.text5} >Click To Manage</Text>
+        <Text style={styles.text5} >Manage water Schedule</Text>
       </TouchableOpacity>
        
        

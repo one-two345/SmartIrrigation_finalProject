@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   main: {
-    backgroundColor: "#cd853f",
+    backgroundColor: "#eee8aa",
     flex: 1,
   },
   text1: {
