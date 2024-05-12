@@ -28,12 +28,12 @@ const Welcome = ({ navigation }) => {
                         fontSize: 50,
                         fontWeight: 800,
                         color: COLORS.white
-                    }}>Let's Get</Text>
-                    <Text style={{
+                    }}>"Effortless Greenery, Precision at Your Fingertips."</Text>
+                    {/* <Text style={{
                         fontSize: 46,
                         fontWeight: 800,
                         color: COLORS.white
-                    }}>Started</Text>
+                    }}>Started</Text> */}
 
                   
 

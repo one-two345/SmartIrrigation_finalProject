@@ -10,7 +10,7 @@ export const getSensorsContent = () => async (dispatch) => {
       try {
         const app = getFirebaseApp();
         const dbRef = ref(getDatabase());
-        const temSensorContentRef = child(dbRef, `MLIoT_SIS/temperature`);
+        const temSensorContentRef = child(dbRef, `test/float`);
         const moistureSensorContentRef = child(dbRef, `MLIoT_SIS/moisture`);
         const humiditySensorContentRef = child(dbRef, `MLIoT_SIS/humidity`);
 

@@ -25,15 +25,15 @@ const ViewContent = () => {
     <View style={styles.main}>
       <Text style={styles.text1}>Weather Condition</Text>
       <View style={styles.main1}>
-        <Text style={styles.text2}> `Temprature: ${sensorsContent.temperatureData}`</Text>
-        <Text style={styles.text2}>`Humidity: ${sensorsContent.humidityData}`</Text>
+        <Text style={styles.text2}> `Temprature: ${sensorsContent.temperatureData} 0C`</Text>
+        <Text style={styles.text2}>`Humidity: ${sensorsContent.humidityData} %`</Text>
         <Text style={styles.text2}>forcast:{data[2]}</Text>
       </View>
       <Text style={styles.text1}>Soil Moisture Levels</Text>
       <View style={styles.row}>
         <View style={styles.column}>
           <Text style={styles.text3}>Zone A</Text>
-          <Text style={styles.text4}>`Moisture Level: ${sensorsContent.moistureData}`</Text>
+          <Text style={styles.text4}>`Moisture Level: ${sensorsContent.moistureData} %`</Text>
         </View>
         <View style={styles.column}>
           <Text style={styles.text3}>Zone B</Text>
