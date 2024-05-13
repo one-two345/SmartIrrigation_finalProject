@@ -37,7 +37,7 @@ const Login = ({ navigation }) => {
     const inputChangedHandler = useCallback((inputId, inputValue)=>{
         const result = validateInput(inputId, inputValue);
         dispatchFormState({ inputId, validationResult: result, inputValue: inputValue})
-        console.log('hhkjh')
+        // console.log('hhkjh')
 
     },[dispatchFormState])
 
