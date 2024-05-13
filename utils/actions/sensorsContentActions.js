@@ -42,13 +42,13 @@ export const sensorContent = ( email, password) => {
     }
   }
 }
-const getSensorData = async (userId) => {
+export const getSensorData = async (sensor) => {
   try {
     const app = getFirebaseApp();
     const dbRef = ref(getDatabase());
-    const sensorContentRef = child(dbRef,`MLIoT_SIS/temperature`)
+    const sensorContentRef = child(dbRef,`MLIoT_SIS/${sensor}`)
     
-    const snapshot = await get(userRef)
+    const snapshot = await get(sensorContentRef)
 
     return snapshot.val()
 

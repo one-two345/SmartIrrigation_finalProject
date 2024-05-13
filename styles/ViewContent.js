@@ -1,14 +1,15 @@
 import { StyleSheet } from "react-native";
+
 export const styles=StyleSheet.create({
     main:{
-      backgroundColor:'#dcdcdc',
+      backgroundColor:'white',
       flex:1,},
 
       text1:{
     fontSize:30,
-    marginTop:20,
+    marginTop: 15,
     marginStart:12,
-    fontWeight:'bold'
+    fontWeight:'bold',marginHorizontal: 22 
       },
   main1:{
     marginTop:30,
@@ -34,8 +35,8 @@ export const styles=StyleSheet.create({
   column: {
     flex: 1,
     marginHorizontal: 5,
-    backgroundColor:'white',
-    height:120,
+    backgroundColor:'',
+    height:140,
     marginEnd:5,
    marginRight:5
   },
@@ -49,24 +50,29 @@ export const styles=StyleSheet.create({
     fontSize:15
   },
   main2:{
-    backgroundColor:'white',
+    backgroundColor:'#d8bfd8',
     width:'85%',
-    height:89,
+    borderRadius:15,
+    height:70,
     marginStart:15
   },
   touch1:{
    backgroundColor:'black',
    marginTop:40,
    marginStart:15,
+   borderRadius:15,
    marginEnd:10,
-   width:'85%',
+   width:'92%',
    height:70,
-   alignItems:'center'
+   alignItems:'center',
+  
   },
   text5:{
     color:'white',
-    marginTop:15,
-    fontSize:20
+    textAlign: 'center',
+    paddingTop: '7px',
+    fontSize: '30px',
+    fontWeight: '400'
   }
      
   
