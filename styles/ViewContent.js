@@ -70,7 +70,7 @@ export const styles=StyleSheet.create({
   text5:{
     color:'white',
     textAlign: 'center',
-    paddingTop: '7px',
+    paddingTop: '0px',
     fontSize: '30px',
     fontWeight: '400'
   }

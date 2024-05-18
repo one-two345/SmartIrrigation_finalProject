@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { getSensorData } from "../utils/actions/sensorsContentActions.js";
+import { getSensorData, setControl } from "../utils/actions/sensorsContentActions.js";
 import PieChart from "../components/PieChart";
 import CircularProgressBar from "../components/CircularProgressBar.js";
 import { styles } from "../styles/ViewContent.js";
@@ -15,6 +15,8 @@ const ViewContent = () => {
   const [moist, setMoist] = useState(0);
   const [duration, setDuration] = useState(0);
   const [status, setStatus] = useState("");
+  const [isOn, setIsOn] = useState(false);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +26,7 @@ const ViewContent = () => {
         const moistData = await getSensorData("moisture");
         const durationData = await getSensorData("duration");
         const statusData = await getSensorData("status");
+        
         
         // Set the fetched data to state variables
         setTemp(tempData);
@@ -38,6 +41,12 @@ const ViewContent = () => {
 
     fetchData(); // Call the fetchData function when the component mounts
   }, []); // Empty dependency array ensures useEffect runs only once
+ 
+  const newControlValue = isOn ? 'ON' : 'OFF';
+  const handlePress = () => {
+    setIsOn(!isOn)
+    setControl(newControlValue)
+  }
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
@@ -56,6 +65,7 @@ const ViewContent = () => {
             <View style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
               <Text style={{ fontSize: 30, fontWeight: "400", marginBottom: 5, marginTop: 5 }}>Water Pump</Text>
               <TouchableOpacity 
+                onPress={handlePress}
                 style={{
                   fontSize: 40, 
                   fontWeight: "500", 
@@ -72,7 +82,7 @@ const ViewContent = () => {
                   elevation: 5 // For Android
                 }}
               >
-                <Text style={{ fontSize: 20 }}>OFF</Text>
+                <Text style={{ fontSize: 20 }}>{isOn ? "ON" : "OFF"}</Text>
               </TouchableOpacity>
 
               </View>
@@ -109,7 +119,7 @@ const ViewContent = () => {
               ...styles.touch1,
               backgroundColor: '#3498db', // Background color
               borderRadius: 10, // Border radius
-              paddingTop: 8, // Vertical padding
+              paddingTop: 2, // Vertical padding
               paddingHorizontal: 20, // Horizontal padding
               shadowColor: '#000', // Shadow color
               shadowOffset: {
