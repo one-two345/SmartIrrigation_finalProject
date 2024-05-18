@@ -106,11 +106,11 @@ const ViewContent = () => {
               elevation: 5,
             }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
-              <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ddFF6c' }}>Irrigation: <span style={{ fontSize: 18,fontWeight: '400', color: '#666' }}> {status}</span></Text>
+              <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ddFF6c' }}>Irrigation: <Text style={{ fontSize: 18,fontWeight: '400', color: '#666' }}> {status}</Text></Text>
             </View>
               
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ddFF6c' }}>Water Pump on For:  <span style={{ fontSize: 18, color: '#666' }}> {duration} hr</span></Text>
+              <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ddFF6c' }}>Water Pump on For:  <Text style={{ fontSize: 18, color: '#666' }}> {duration} hr</Text></Text>
             </View>
           </View>
 
