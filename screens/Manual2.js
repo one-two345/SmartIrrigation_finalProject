@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Picker, StyleSheet, TouchableOpacity } from 'react-native';
-import { getDatabase, ref, child, set, push, remove } from 'firebase/database';
-import DatePicker from 'react-native-modern-datepicker';
-import TimePicker from 'react-native-modern-datepicker';
+import { getDatabase, ref, set, push, remove } from 'firebase/database';
+import DatePicker from 'react-datepicker';
+import TimePicker from 'react-time-picker';
+import 'react-datepicker/dist/react-datepicker.css';
+import 'react-time-picker/dist/TimePicker.css';
+import 'react-clock/dist/Clock.css';
 
 const Manual = () => {
   const [isContinuous, setIsContinuous] = useState(false);
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState('00:00');
   const [durationInput, setDurationInput] = useState('');
   const [frequency, setFrequency] = useState('daily');
   const [scheduleId, setScheduleId] = useState(null);
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [showTimePicker, setShowTimePicker] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
   const [isStopDisabled, setIsStopDisabled] = useState(true);
 
@@ -24,18 +25,31 @@ const Manual = () => {
       stop: false,
     };
 
+    // Combine date and time to create a start time
+    const selectedDateTime = new Date(date);
+    const [hours, minutes] = time.split(':');
+    selectedDateTime.setHours(parseInt(hours), parseInt(minutes), 0);
+
+    if (!isNaN(selectedDateTime.getTime())) {
+      data.startTime = selectedDateTime.getTime() / 1000;
+    } else {
+      console.error('Invalid start time:', selectedDateTime);
+      return;
+    }
+
     if (isContinuous) {
-      data.startTime = new Date(`1970-01-01T${time}:00`).getTime() / 1000;
       data.frequency = frequency;
     } else {
       data.date = new Date(date).getTime() / 1000;
     }
 
+    console.log('Data to be sent to Firebase:', data); // For debugging
+
     if (scheduleId) {
-      const childRef = child(ref(db), `MLIoT_SIS/schedule/${scheduleId}`);
+      const childRef = ref(db, `MLIoT_SIS/schedule/${scheduleId}`);
       await set(childRef, data);
     } else {
-      const newScheduleRef = push(child(ref(db), 'MLIoT_SIS/schedule'));
+      const newScheduleRef = push(ref(db, 'MLIoT_SIS/schedule'));
       await set(newScheduleRef, data);
       setScheduleId(newScheduleRef.key);
     }
@@ -47,7 +61,7 @@ const Manual = () => {
   const handleStopSchedule = async () => {
     if (scheduleId) {
       const db = getDatabase();
-      const childRef = child(ref(db), `MLIoT_SIS/schedule/${scheduleId}`);
+      const childRef = ref(db, `MLIoT_SIS/schedule/${scheduleId}`);
       await remove(childRef);
       setScheduleId(null);
       setIsSubmitDisabled(false);
@@ -67,76 +81,43 @@ const Manual = () => {
         <Picker.Item label="Continuous" value={true} />
       </Picker>
 
-      {isContinuous ? (
+      <Text>Select Start Time</Text>
+      <TimePicker
+        onChange={setTime}
+        value={time}
+        disableClock={true}
+      />
+      <Text style={styles.text}>Selected Start Time: {time}</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Enter duration (minutes)"
+        value={durationInput}
+        onChangeText={text => setDurationInput(text)}
+        keyboardType="numeric"
+      />
+
+      {isContinuous && (
+        <Picker
+          selectedValue={frequency}
+          style={styles.picker}
+          onValueChange={(itemValue) => setFrequency(itemValue)}
+        >
+          <Picker.Item label="Daily" value="daily" />
+          <Picker.Item label="Weekly" value="weekly" />
+          <Picker.Item label="Monthly" value="monthly" />
+        </Picker>
+      )}
+
+      {!isContinuous && (
         <>
-          <TouchableOpacity onPress={() => setShowTimePicker(true)} style={styles.button}>
-            <Text>Select Start Time</Text>
-          </TouchableOpacity>
-          {showTimePicker && (
-            <TimePicker
-              mode="time"
-              onTimeChange={(selectedTime) => {
-                setTime(selectedTime);
-                setShowTimePicker(false);
-              }}
-              onCancel={() => setShowTimePicker(false)}
-            />
-          )}
-          <Text style={styles.text}>Selected Start Time: {time}</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter duration (minutes)"
-            value={durationInput}
-            onChangeText={text => setDurationInput(text)}
-            keyboardType="numeric"
+          <Text>Select Date</Text>
+          <DatePicker
+            selected={date}
+            onChange={date => setDate(date)}
+            dateFormat="yyyy-MM-dd"
           />
-          <Picker
-            selectedValue={frequency}
-            style={styles.picker}
-            onValueChange={(itemValue) => setFrequency(itemValue)}
-          >
-            <Picker.Item label="Daily" value="daily" />
-            <Picker.Item label="Weekly" value="weekly" />
-            <Picker.Item label="Monthly" value="monthly" />
-          </Picker>
-        </>
-      ) : (
-        <>
-          <TouchableOpacity onPress={() => setShowDatePicker(true)} style={styles.button}>
-            <Text>Select Date</Text>
-          </TouchableOpacity>
-          {showDatePicker && (
-            <DatePicker
-              mode="calendar"
-              onDateChange={(selectedDate) => {
-                setDate(selectedDate);
-                setShowDatePicker(false);
-              }}
-              onCancel={() => setShowDatePicker(false)}
-            />
-          )}
-          <Text style={styles.text}>Selected Date: {date}</Text>
-          <TouchableOpacity onPress={() => setShowTimePicker(true)} style={styles.button}>
-            <Text>Select Time</Text>
-          </TouchableOpacity>
-          {showTimePicker && (
-            <TimePicker
-              mode="time"
-              onTimeChange={(selectedTime) => {
-                setTime(selectedTime);
-                setShowTimePicker(false);
-              }}
-              onCancel={() => setShowTimePicker(false)}
-            />
-          )}
-          <Text style={styles.text}>Selected Time: {time}</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Enter duration (minutes)"
-            value={durationInput}
-            onChangeText={text => setDurationInput(text)}
-            keyboardType="numeric"
-          />
+          <Text style={styles.text}>Selected Date: {date.toDateString()}</Text>
         </>
       )}
 
