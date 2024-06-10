@@ -10,6 +10,7 @@ import ControlSystem from './screens/ControlSystem'
 import ViewContent from './screens/ViewContent';
 import ScheduleManagment from './screens/ScheduleManagment'
 import Setting from './screens/Setting'
+import Manual from './screens/Manual2';
 import {reducers} from './reducers'
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
@@ -75,6 +76,14 @@ export default function App() {
             <Stack.Screen
               name="setting"
               component={Setting}
+              options={{
+                headerShown:true
+              }}
+              
+            />
+             <Stack.Screen
+              name="Manual"
+              component={Manual}
               options={{
                 headerShown:true
               }}
